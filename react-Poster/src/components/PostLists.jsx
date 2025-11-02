@@ -5,6 +5,10 @@ import classes from "./PostLists.module.css";
 import Modal from "./Modal";
 
 const PostLists = ({ isPosting, onStopPosting }) => {
+  const [post, setPost] = useState([]);
+  function addPostHandler(PostData) {
+    setPost((existingPost) => [PostData, ...existingPost]);
+  }
   // let modalContent;
   // if (modalIsVisible) {
   //   modalContent = (
@@ -20,13 +24,11 @@ const PostLists = ({ isPosting, onStopPosting }) => {
     <>
       {isPosting && (
         <Modal onClose={onStopPosting}>
-          <NewPost onCancel={onStopPosting} />
+          <NewPost onCancel={onStopPosting} addPostHandler={addPostHandler} />
         </Modal>
       )}
       <ul className={classes.posts}>
-        
-       
-        <Post aouthor="farshid" text="check out this video" />
+        {post.map((post,postId)=><Post key={postId} author={post.author} text={post.body}/>)}
       </ul>
     </>
   );

@@ -1,7 +1,7 @@
 import classes from './NewPost.module.css'
 import { useState } from 'react';
 
-const NewPost = ({onCancel}) => {
+const NewPost = ({onCancel,addPostHandler}) => {
    const [enteredBody, setEnterdBody] = useState("");
   const [enteredAuthor, setEnterdAuthor] = useState("");
 
@@ -18,7 +18,9 @@ const NewPost = ({onCancel}) => {
       body:enteredBody,
       author:enteredAuthor
     }
-    console.log(postData);
+    // console.log(postData);
+    addPostHandler(postData)
+    onCancel()
   }
   return (
     <form className={classes.form} onSubmit={submitHandler}>

@@ -1,17 +1,24 @@
-
 function App() {
-  
-
   return (
     <>
-    <h1>React Tic-Tac-Toe</h1>
-    
-    
+      <main>
+        <div id="game-container">
+          <ol id="players">
+            <li>
+              <span className="player-name">player 1</span>
+              <span className="player-symbol">X</span>{" "}
+            </li>
+            <li>
+              <span className="player-name">player 2</span>{" "}
+              <span className="player-symbol">O</span>
+            </li>
+          </ol>
+          GAME BOARD
+        </div>
+        LOG
+      </main>
     </>
-    
-   
-    
-  )
+  );
 }
 
-export default App
+export default App;

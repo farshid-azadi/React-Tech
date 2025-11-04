@@ -188,6 +188,13 @@ ol {
   cursor: pointer;
   font-family: 'Caprasimo', cursive;
   padding: 1rem;
+  transition: all 0.2s;
+}
+
+#game-board button:disabled {
+  cursor: default;
+  background: #cdc9b3;
+  color: #3f3b00;
 }
 
 #game-over {

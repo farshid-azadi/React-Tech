@@ -5,10 +5,17 @@ import Log from "./components/Log";
 
 function App() {
   const [activePlayer, setActivePlayer] = useState("X");
-  function handleSelectSquare() {
+  const [gameTurns, setGameTurns] = useState([]);
+  function handleSelectSquare(rowIndex, colIndex) {
     setActivePlayer((currActivePlayer) =>
       currActivePlayer === "X" ? "O" : "X"
     );
+    setActivePlayer((prevTurn) => {
+      const updatedTurns = [
+        { square: { row: rowIndex, col: colIndex } },
+        ...prevTurn,
+      ];
+    });
   }
   return (
     <>
